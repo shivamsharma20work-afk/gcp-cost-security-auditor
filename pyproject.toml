@@ -1,0 +1,35 @@
+[project]
+name = "auditor"
+version = "0.1.0"
+description = "Daily GCP scan for idle VMs, unattached disks and open firewall rules -> BigQuery + Slack"
+readme = "README.md"
+authors = [
+    { name = "Shivam Sharma", email = "shivamsharma20.work@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "functions-framework>=3.10.2",
+    "google-cloud-bigquery>=3.46.2",
+    "google-cloud-compute>=1.56.0",
+    "google-cloud-monitoring>=2.32.0",
+    "requests>=2.34.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.1",
+]
+
+[project.scripts]
+auditor = "auditor.main:cli"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

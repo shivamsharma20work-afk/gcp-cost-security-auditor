@@ -1,0 +1,12 @@
+__pycache__/
+*.py[oc]
+.venv
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+.terraform/
+*.tfstate*
+*.tfvars
+!*.tfvars.example
+.env
